@@ -4,8 +4,12 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
-public record TeacherInsertDTO(
+import java.util.UUID;
 
+public record TeacherEditDTO(
+
+        @NotNull
+        UUID uuid,
 //        @NotNull(message = "Το όνομα δεν μπορεί να είναι κενό")
 //        @Size(min = 2, message = "Το όνομα πρέπει να περιέχει τουλάχιστον δύο χαρακτήρες.")
         @NotNull
@@ -26,7 +30,7 @@ public record TeacherInsertDTO(
         @NotNull
         Long regionId
 ) {
-    public static TeacherInsertDTO empty() {
-        return new TeacherInsertDTO("", "", "", 0L);
+    public static TeacherEditDTO empty() {
+        return new TeacherEditDTO(null, "", "", "", 0L);
     }
 }
